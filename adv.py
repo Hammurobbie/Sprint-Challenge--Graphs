@@ -58,7 +58,6 @@ class Graph:
 
             if player.current_room.id not in self.explored:
                 # self.count += 1
-                print(self.cur_path)
                 self.explored[player.current_room.id] = player.current_room.get_exits()
                 # print("new explored room", self.explored[player.current_room.id])
             elif len(self.explored[player.current_room.id]) == 0:
