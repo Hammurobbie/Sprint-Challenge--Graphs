@@ -12,8 +12,8 @@ world = World()
 
 # You may uncomment the smaller graphs for development and testing purposes.
 # map_file = "maps/test_line.txt"
-#map_file = "maps/test_cross.txt"
-map_file = "maps/test_loop.txt"
+map_file = "maps/test_cross.txt"
+#map_file = "maps/test_loop.txt"
 # map_file = "maps/test_loop_fork.txt"
 # map_file = "maps/main_maze.txt"
 
@@ -71,6 +71,7 @@ class Graph:
                         if player.current_room.get_room_in_direction(exit_boi4).id == next_room:
                             next_room_dir = exit_boi4
                     if next_room_dir:
+                        print(next_room_dir, "fgdsfghdshgdshdfghdsghdfsghfghfsh")
                         player.travel(next_room_dir)
                         traversal_path.append(next_room_dir)
                         cur_path.append(next_room_dir)
@@ -90,13 +91,10 @@ class Graph:
                                 backtrack = "e"
                             player.travel(backtrack)
                             traversal_path.append(backtrack)
-                            print("currr room exits",
-                                  player.current_room.get_exits())
                             next_rooms_arr.pop()
                             exits2 = player.current_room.get_exits()
                             next_room_dir_2 = None
                             for exit_boi3 in exits2:
-                                print(exits2, "sdfgadfsgadfgadfgadf")
                                 next_rooms_arr.append(
                                     player.current_room.get_room_in_direction(exit_boi3).id)
                             for exit_boi3 in exits2:
@@ -110,21 +108,14 @@ class Graph:
                                 print("what the fuckjttttttttttttttt",
                                       player.current_room.id)
                         else:
-                            # for exit_boi2 in exits:
-                            #     if player.current_room.get_room_in_direction(exit_boi2).id == next_room:
-                            #         player.travel(exit_boi2)
-                            #         traversal_path.append(exit_boi2)
-                            #         cur_path.append(exit_boi3)
-                            #         print(
-                            #             "what the fuckjkkkkkkkkkkkkkkk", cur_path)
-                            if exit_boi3 == "n":
-                                cur_path.append("s")
-                            elif exit_boi3 == "s":
-                                cur_path.append("n")
-                            elif exit_boi3 == "e":
-                                cur_path.append("w")
-                            elif exit_boi3 == "w":
-                                cur_path.append("e")
+                            # if exit_boi3 == "n":
+                            #     cur_path.append("s")
+                            # elif exit_boi3 == "s":
+                            #     cur_path.append("n")
+                            # elif exit_boi3 == "e":
+                            #     cur_path.append("w")
+                            # elif exit_boi3 == "w":
+                            #     cur_path.append("e")
                             break
 
 
