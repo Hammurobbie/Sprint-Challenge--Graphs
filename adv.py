@@ -13,7 +13,7 @@ world = World()
 # You may uncomment the smaller graphs for development and testing purposes.
 # map_file = "maps/test_line.txt"
 #map_file = "maps/test_cross.txt"
-# map_file = "maps/test_loop.txt"
+#map_file = "maps/test_loop.txt"
 #map_file = "maps/test_loop_fork.txt"
 map_file = "maps/main_maze.txt"
 
@@ -50,7 +50,7 @@ class Graph:
 
     def dft(self, starting_vertex):
 
-        self.explored[player.current_room.id] = player.current_room.get_exits()
+        self.explored[starting_vertex] = player.current_room.get_exits()
 
         # print(room_graph, len(room_graph))
 
