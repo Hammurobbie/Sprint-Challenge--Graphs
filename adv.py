@@ -65,14 +65,16 @@ class Graph:
                     print("next room", next_room)
                     next_rooms_arr = []
                     for exit_boi2 in exits:
-                        print("exit for next", exit_boi2)
                         next_rooms_arr.append(
                             player.current_room.get_room_in_direction(exit_boi2).id)
-                        if player.current_room.get_room_in_direction(exit_boi2).id == next_room:
-                            player.travel(exit_boi2)
-                            traversal_path.append(exit_boi2)
-                            cur_path.append(exit_boi2)
-                            print("cur path", cur_path)
+                    for exit_boi4 in exits:
+                        if player.current_room.get_room_in_direction(exit_boi4).id == next_room:
+                            next_room_dir = exit_boi4
+                    if next_room_dir:
+                        player.travel(next_room_dir)
+                        traversal_path.append(next_room_dir)
+                        cur_path.append(next_room_dir)
+                        print("cur path", cur_path)
                     while set(next_rooms_arr).issubset(visited):
                         print("next rooms ar", next_rooms_arr, visited)
                         if cur_path:
@@ -92,16 +94,21 @@ class Graph:
                                   player.current_room.get_exits())
                             next_rooms_arr.pop()
                             exits2 = player.current_room.get_exits()
+                            next_room_dir_2 = None
                             for exit_boi3 in exits2:
+                                print(exits2, "sdfgadfsgadfgadfgadf")
                                 next_rooms_arr.append(
                                     player.current_room.get_room_in_direction(exit_boi3).id)
+                            for exit_boi3 in exits2:
                                 if player.current_room.get_room_in_direction(exit_boi3).id == next_room:
-                                    print("what the fuckjttttttttttttttt",
-                                          player.current_room.id)
-                                    player.travel(exit_boi3)
-                                    traversal_path.append(exit_boi3)
-                                    print("what the fuckjttttttttttttttt",
-                                          player.current_room.id)
+                                    next_room_dir_2 = exit_boi3
+                            if next_room_dir_2:
+                                print("what the fuckjttttttttttttttt",
+                                      player.current_room.id)
+                                player.travel(next_room_dir_2)
+                                traversal_path.append(next_room_dir_2)
+                                print("what the fuckjttttttttttttttt",
+                                      player.current_room.id)
                         else:
                             # for exit_boi2 in exits:
                             #     if player.current_room.get_room_in_direction(exit_boi2).id == next_room:
